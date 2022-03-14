@@ -267,7 +267,41 @@ module Xcov
           conflicting_options: [:coveralls_service_name, :coveralls_service_job_id],
           description: "Repository token to be used by integrations not compatible with Coveralls"
         ),
-
+        FastlaneCore::ConfigItem.new(
+          key: :coveralls_service_name,
+          env_name: "COVERALLS_SERVICE_NAME",
+          optional: true,
+          conflicting_options: [:coveralls_repo_token],
+          description: "Name of the CI service compatible with Coveralls. i.e. travis-ci. This option must be defined along with coveralls_service_job_id"
+        ),
+        FastlaneCore::ConfigItem.new(
+          key: :coveralls_service_number,
+          env_name: "COVERALLS_SERVICE_NUMBER",
+          optional: true,
+          # conflicting_options: [:coveralls_repo_token],
+          description: "Build number of the current build running on a CI service compatible with Coveralls. This option must be defined along with coveralls_service_name"
+        ),
+        FastlaneCore::ConfigItem.new(
+          key: :coveralls_service_build_url,
+          env_name: "COVERALLS_SERVICE_BUILD_URL",
+          optional: true,
+          # conflicting_options: [:coveralls_repo_token],
+          description: ""
+        ),
+        FastlaneCore::ConfigItem.new(
+          key: :coveralls_service_branch,
+          env_name: "COVERALLS_SERVICE_BRANCH",
+          optional: true,
+          # conflicting_options: [:coveralls_repo_token],
+          description: description: "Identifier of the branch being merged into in the pull request running on a CI service compatible with Coveralls. This option must be defined along with coveralls_service_name"
+        ),
+        FastlaneCore::ConfigItem.new(
+          key: :coveralls_service_pull_request,
+          env_name: "COVERALLS_SERVICE_PULL_REQUEST",
+          optional: true,
+          # conflicting_options: [:coveralls_repo_token],
+          description: description: "Identifier of the current pull request running on a CI service compatible with Coveralls. This option must be defined along with coveralls_service_name"
+        ),
         # Fastlane compatibility issue fix
         FastlaneCore::ConfigItem.new(
           key: :xcconfig,

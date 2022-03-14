@@ -44,10 +44,19 @@ module Xcov
             }
           end
         end
-
+        # config[:service_name]         ||= ENV['CI_NAME']
+        # config[:service_number]       ||= ENV['CI_BUILD_NUMBER']
+        # config[:service_job_id]       ||= ENV['CI_JOB_ID']
+        # config[:service_build_url]    ||= ENV['CI_BUILD_URL']
+        # config[:service_branch]       ||= ENV['CI_BRANCH']
+        # config[:service_pull_request] ||= (ENV['CI_PULL_REQUEST'] || "")[/(\d+)$/,1]
         json = {
           service_job_id: Xcov.config[:coveralls_service_job_id],
           service_name: Xcov.config[:coveralls_service_name],
+          service_number: Xcov.config[:coveralls_service_number],
+          service_build_url: Xcov.config[:coveralls_service_build_url],
+          service_branch: Xcov.config[:coveralls_service_branch],
+          service_pull_request: Xcov.config[:coveralls_service_pull_request],
           repo_token: Xcov.config[:coveralls_repo_token],
           source_files: source_files
         }
