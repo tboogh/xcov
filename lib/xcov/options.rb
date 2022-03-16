@@ -293,14 +293,14 @@ module Xcov
           env_name: "COVERALLS_SERVICE_BRANCH",
           optional: true,
           # conflicting_options: [:coveralls_repo_token],
-          description: description: "Identifier of the branch being merged into in the pull request running on a CI service compatible with Coveralls. This option must be defined along with coveralls_service_name"
+          description: "Identifier of the branch being merged into in the pull request running on a CI service compatible with Coveralls. This option must be defined along with coveralls_service_name"
         ),
         FastlaneCore::ConfigItem.new(
           key: :coveralls_service_pull_request,
           env_name: "COVERALLS_SERVICE_PULL_REQUEST",
           optional: true,
           # conflicting_options: [:coveralls_repo_token],
-          description: description: "Identifier of the current pull request running on a CI service compatible with Coveralls. This option must be defined along with coveralls_service_name"
+          description: "Identifier of the current pull request running on a CI service compatible with Coveralls. This option must be defined along with coveralls_service_name"
         ),
         # Fastlane compatibility issue fix
         FastlaneCore::ConfigItem.new(
