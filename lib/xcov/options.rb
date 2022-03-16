@@ -268,13 +268,6 @@ module Xcov
           description: "Repository token to be used by integrations not compatible with Coveralls"
         ),
         FastlaneCore::ConfigItem.new(
-          key: :coveralls_service_name,
-          env_name: "COVERALLS_SERVICE_NAME",
-          optional: true,
-          conflicting_options: [:coveralls_repo_token],
-          description: "Name of the CI service compatible with Coveralls. i.e. travis-ci. This option must be defined along with coveralls_service_job_id"
-        ),
-        FastlaneCore::ConfigItem.new(
           key: :coveralls_service_number,
           env_name: "COVERALLS_SERVICE_NUMBER",
           optional: true,
