@@ -71,7 +71,8 @@ module Xcov
           file.puts JSON.pretty_generate(json)
           file.close
         end
-
+        UI.message "Report written"
+        UI.message json
         # Return path
         return coveralls_json_file.path
       end
