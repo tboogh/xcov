@@ -31,13 +31,17 @@ module Xcov
 
     def run
       # Run xcov
+      UI.message "parse"
       json_report = parse_xccoverage
+      UI.message "generate"
       report = generate_xcov_report(json_report)
+      UI.message "valudate"
       validate_report(report)
+      UI.message "submit"
       submit_to_coveralls(report)
       tmp_dir = File.join(Xcov.config[:output_directory], 'tmp')
       FileUtils.rm_rf(tmp_dir) if File.directory?(tmp_dir)
-
+      UI.message "report"
       json_report
     end
 
