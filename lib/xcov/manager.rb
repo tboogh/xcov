@@ -189,11 +189,12 @@ module Xcov
 
     def submit_to_coveralls(report)
       if Xcov.config[:disable_coveralls]
+        UI.message "coveralls disabled"
         return
       end
-      if !Xcov.config[:coveralls_repo_token].nil? || !(Xcov.config[:coveralls_service_name].nil? && Xcov.config[:coveralls_service_job_id].nil?)
+      # if !Xcov.config[:coveralls_repo_token].nil? || !(Xcov.config[:coveralls_service_name].nil? && Xcov.config[:coveralls_service_job_id].nil?)
         CoverallsHandler.submit(report)
-      end
+      # end
     end
 
     # Auxiliar methods
