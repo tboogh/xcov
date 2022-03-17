@@ -7,6 +7,7 @@ module Xcov
     class << self
 
       def submit(report)
+        UI.message "Submit report"
         coveralls_json_path = convert_and_store_coveralls_json(report)
         perform_request(coveralls_json_path)
       end
